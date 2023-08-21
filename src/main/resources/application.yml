@@ -1,0 +1,37 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/test-school
+    hikari:
+      auto-commit: true
+    username: george
+    password: wonderful143
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    database: postgresql
+
+  flyway:
+    baseline-on-migrate: true
+    enabled: true
+    user: george
+    password: wonderful143
+    baseline-description: "init"
+    baseline-version: 0
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/Test
+          jwk-set-uri: ${spring.security.oauth2.resourceserver.jwt.issuer-uri}/protocol/openid-connect/certs
+
+jwt:
+  auth:
+    converter:
+      resource-id: test
+      principal-attribute: preferred_username

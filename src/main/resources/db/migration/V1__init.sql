@@ -1,0 +1,13 @@
+CREATE TABLE IF NOT EXISTS students(
+  student_id UUID NOT NULL PRIMARY KEY ,
+  name VARCHAR(255) NOT NULL,
+  gender VARCHAR(65) NOT NULL,
+  age INTEGER NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS courses(
+  course_id UUID NOT NULL PRIMARY KEY,
+  title VARCHAR(255) NOT NULL,
+  description VARCHAR(255)
+);
+
